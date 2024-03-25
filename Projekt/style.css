@@ -1,0 +1,189 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  background-color: #fff;
+  color: #333;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2); /* skapar en skugga */
+  position: relative; /* används för att använda ett så kallat psuedo element */
+  z-index: 1;
+}
+
+/*Förklaring: */
+/* Allt detta händer efter headern är placerad och är ett psuedo element alltså skuggan mellan header och main*/
+/* man skulle kunna säga: man skapar samma header fast med en skugga och sen tar bort allt förutom skuggan som läggs på */
+header::after {
+  content: ""; /* Här lägger vi till en tom sträng i psuedo elementet för vi vill inte ha något här */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 10px; /* Höjden på skuggan som skapas */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 2; /* Se till att skuggan är överst basically */
+}
+
+main {
+  margin-top: -10px; /* negativt värde för att flytta main lite så att den är på skuggan */
+  z-index: 0; /* Se till att main är bakom skuggan med detta*/
+}
+
+nav {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-bar {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-bar2 {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-bar input {
+  display: block;
+  /* background-image: url(https://cdn2.hubspot.net/hubfs/4004166/bioticresearch_website_assets/images/search_icon.png);
+  background-repeat: no-repeat;
+  background-position: left center; */
+  margin: 0 auto;
+  height: 45px;
+  width: 35%;
+  border-radius: 8px;
+  color: black;
+  background-color: #dddddd;
+  padding: 0 40px 0 40px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.search-bar i {
+  display: none;
+  position: absolute;
+  color: #000000;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  margin-right: 28%;
+
+  /* För att sätta position till hälften av sökfältet */
+}
+
+.search-bar input::placeholder {
+  color: #000000; /* Ändra färgen på platshållartexten */
+}
+
+.hamburgarmeny img {
+  height: 70px;
+  flex: 1;
+  display: none;
+}
+
+button {
+  background-color: blueviolet;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-right: 2%;
+  flex-shrink: 0;
+  margin-left: 5%;
+}
+
+.logo img {
+  height: 90px;
+  flex-shrink: 0;
+}
+
+/* slanted picture */
+.slanted {
+  position: relative;
+  min-height: 300px;
+  min-width: 100%;
+  background-image: url(Car-dealership.jpeg);
+  background-repeat: no-repeat;
+  background-size: 64%;
+  background-position: right;
+  background-attachment: scroll;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+.slanted:after,
+.slanted:before {
+  content: "";
+  position: absolute;
+}
+.slant-to-right:before {
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(39, 37, 37);
+  clip-path: polygon(0% 0%, 0% 350%, 55% 0%);
+}
+.slanted p {
+  position: relative;
+  z-index: 2;
+  margin-left: 20px;
+  font-size: 2rem;
+  text-align: left;
+  align-self: center;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 45px;
+}
+
+.colored-text {
+  color: rgb(157, 171, 186);
+  display: block;
+}
+
+.mellanspel {
+  display: flex;
+  background-color: #eaeaea;
+  height: 500px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.rubrik {
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+}
+
+.rubrik2 {
+}
+
+@media only screen and (max-width: 480px) {
+  .logo img {
+    width: 50px; /* Justera bredden efter behov */
+    height: auto; /* Automatisk höjdjustering för att bevara proportionerna */
+  }
+  button {
+    display: none;
+  }
+  .hamburgarmeny img {
+    display: block;
+  }
+}
