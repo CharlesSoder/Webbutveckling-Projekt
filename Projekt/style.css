@@ -172,7 +172,11 @@ button {
   font-size: 25px;
 }
 
-.rubrik2 {
+/* .rubrik2 {
+} */
+
+.welcome-pic {
+  size: 200px;
 }
 
 @media only screen and (max-width: 480px) {
