@@ -119,11 +119,7 @@ button {
   position: relative;
   min-height: 300px;
   min-width: 100%;
-  background-image: url(Car-dealership.jpeg);
-  background-repeat: no-repeat;
-  background-size: 64%;
-  background-position: right;
-  background-attachment: scroll;
+  background: url(Car-dealership.jpeg) no-repeat right / 64% scroll;
   display: inline-flex;
   justify-content: flex-start;
   align-content: center;
@@ -154,9 +150,25 @@ button {
   font-size: 45px;
 }
 
+.background-size-hover {
+  background-position: right;
+  transition: background-size 0.5s;
+  /* transition: min-width 0.5s; */
+}
+
+.background-size-hover:hover {
+  background-size: 65%;
+  /* min-width: 130%; */
+}
+
+.upper-text {
+  font-size: 4.5vw;
+}
+
 .colored-text {
   color: rgb(157, 171, 186);
   display: block;
+  font-size: 4.5vw;
 }
 
 .mellanspel {
@@ -177,6 +189,23 @@ button {
 
 .welcome-pic {
   size: 200px;
+}
+
+.sticky-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999; /*högt nummer för att den ska vara längst fram */
+}
+
+.sticky-button a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #8d8d8d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 @media only screen and (max-width: 480px) {
