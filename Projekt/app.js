@@ -4,7 +4,13 @@ const query = "240sx kouki"; // You can change this query to search for specific
 // Function to fetch images from Pexels API
 // Jag har lagt per page till 0 så ändra när användning
 function fetchImages() {
-  fetch(`https://api.pexels.com/v1/search?query=${query}&per_page=0`, {
+  fetchImage("XC60", 0);
+  fetchImage("Mercedes", 1);
+  fetchImage("Nissan", 2);
+}
+
+function fetchImage(query, containerIndex) {
+  fetch(`https://api.pexels.com/v1/search?query=${query}&per_page=1`, {
     headers: {
       Authorization: apiKey,
     },
@@ -12,14 +18,24 @@ function fetchImages() {
     .then((response) => response.json())
     .then((data) => {
       const images = data.photos;
-      const imageContainer = document.getElementById("image-container");
+      const container =
+        document.querySelectorAll(".bil-container")[containerIndex];
 
       images.forEach((image) => {
         const imgElement = document.createElement("img");
         imgElement.src = image.src.medium;
         imgElement.alt = image.alt_description;
-        imageContainer.appendChild(imgElement);
+        container.appendChild(imgElement);
+
+        const carModel = image.model ?? "Unknown";
+
+        console.log("Car Model:", carModel);
       });
+
+      //texten för den exakta bilen
+      const textElement = document.createElement("p");
+      textElement.textContent = query;
+      container.appendChild(textElement);
     })
     .catch((error) => {
       console.error("Error fetching images:", error);

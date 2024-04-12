@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -77,7 +79,7 @@ nav {
 }
 
 .search-bar i {
-  display: none;
+  display: inline-block;
   position: absolute;
   color: #000000;
   border: none;
@@ -152,12 +154,12 @@ button {
 
 .background-size-hover {
   background-position: right;
-  transition: background-size 0.5s;
+  transition: background-size 0.3s;
   /* transition: min-width 0.5s; */
 }
 
 .background-size-hover:hover {
-  background-size: 65%;
+  background-size: 64.5%;
   /* min-width: 130%; */
 }
 
@@ -171,12 +173,24 @@ button {
   font-size: 4.5vw;
 }
 
-.mellanspel {
+.car-main-div-text {
   display: flex;
-  background-color: #eaeaea;
-  height: 500px;
+  background-color: rgb(205, 205, 205);
+  height: 100px;
   flex-direction: column;
   text-align: center;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.car-main-div {
+  display: flex;
+  background-color: #e4e4e4;
+  height: 500px;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
 }
 
 .rubrik {
@@ -184,12 +198,47 @@ button {
   font-size: 25px;
 }
 
+.bil-rubrik {
+  font-size: 25px;
+  font-family: "Quicksand", sans-serif;
+}
+
+.bil-container {
+  background-color: #f1f1f1;
+  flex: 1;
+  text-align: center;
+  margin: 10px;
+  overflow: hidden;
+}
+
+.bil-container:hover {
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
+  background-size: 40%;
+}
+
+.bil-container:hover img {
+  transform: scale(1.02);
+}
+
+.bil-container img {
+  height: 275px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+  transition: transform 0.3s ease;
+}
+
+.bil-container p {
+  font-size: 25px;
+  font-family: "Roboto", sans-serif;
+}
+
 /* .rubrik2 {
 } */
 
-.welcome-pic {
+/* .welcome-pic {
   size: 200px;
-}
+} */
 
 .sticky-button {
   position: fixed;
