@@ -5,24 +5,24 @@ const query = "240sx kouki"; // You can change this query to search for specific
 // Jag har lagt per page till 0 så ändra när användning
 
 let carBrands = [
-  "Lamborghini",
-  "Mercedes",
-  "Nissan",
-  "Chevrolet",
-  "Volkswagen",
-  "Audi",
-  "Honda",
-  "Hyundai",
-  "Kia",
-  "Ferrari",
-  "Porsche",
-  "Lexus",
-  "Mazda",
-  "Subaru",
-  "Tesla",
-  "Volvo",
-  "Jeep",
-  "Jaguar",
+  "Lamborghini Murcielago",
+  "Mercedes-benz S-Class",
+  "Nissan Sentra",
+  "Chevrolet Corvette",
+  "Volkswagen Passat",
+  "Audi A4",
+  "Honda Civic",
+  "Hyundai Sonata",
+  "Kia Sorento",
+  "Ferrari F8 Tributo",
+  "Porsche Cayenne",
+  "Lexus ES",
+  // "Mazda MX-5",
+  // "Subaru Impreza",
+  // "Tesla Model S",
+  // "Volvo XC90",
+  // "Jeep Wrangler",
+  // "Jaguar F-Type",
 ];
 
 for (let i = 0; i < 18; i++) {
@@ -36,7 +36,12 @@ function fetchImages() {
   }
 }
 
+const corsProxyUrl = "https://corsproxy.io/?";
+
 function fetchImage(query, containerIndex) {
+  const apiUrl = `https://api.pexels.com/v1/search?query=${query}&per_page=1`;
+  const proxyUrl = corsProxyUrl + encodeURIComponent(apiUrl);
+
   fetch(`https://api.pexels.com/v1/search?query=${query}&per_page=1`, {
     headers: {
       Authorization: apiKey,
@@ -52,8 +57,19 @@ function fetchImage(query, containerIndex) {
         const imgElement = document.createElement("img");
         imgElement.src = image.src.medium;
         imgElement.alt = image.alt_description;
+        imgElement.loading = "lazy";
         container.appendChild(imgElement);
       });
+
+      const button = document.createElement("button");
+      button.textContent = "View Details";
+      button.addEventListener("click", () => {
+        // Redirect to another page passing the car brand as a query parameter
+        window.location.href = `details.html?brand=${encodeURIComponent(
+          query
+        )}`;
+      });
+      container.appendChild(button);
 
       //texten för den exakta bilen
       const textElement = document.createElement("p");
@@ -64,6 +80,34 @@ function fetchImage(query, containerIndex) {
       console.error("Error fetching images:", error);
     });
 }
-
 // Call fetchImages function when the page loads
-window.onload = fetchImages;
+document.addEventListener("DOMContentLoaded", function () {
+  fetchImages();
+});
+const searchInput = document.querySelector(".search-bar2 input");
+
+const searchIcon = document.querySelector(".search-bar2 i.fa-magnifying-glass");
+
+// Add event listener for keypress
+searchInput.addEventListener("keypress", function (event) {
+  // Check if the pressed key is Enter
+  if (event.key === "Enter") {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+    // Call the function to handle search
+    handleSearch();
+  }
+});
+
+searchIcon.addEventListener("click", function () {
+  // Call the function to handle search
+  handleSearch();
+});
+
+// Function to handle search
+function handleSearch() {
+  // Get the search query from the input field
+  const query = searchInput.value.trim();
+  // Redirect to the details page with the search query as a parameter
+  window.location.href = `details.html?modelName=${encodeURIComponent(query)}`;
+}
