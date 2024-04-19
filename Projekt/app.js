@@ -1,4 +1,4 @@
-const apiKey = "63IRMceH21MoQsjJEHf74XKmrBFrf14acsLx9mJxvZ12TIn0CQMzP49s"; // Replace with your Pexels API key
+const apiKey = "n43XbAobCpoDgMqfEUjQ5LRXbsQK5emlU0ORB1SX8p7O6mJAA1WbnTYP"; // Replace with your Pexels API key
 const query = "240sx kouki"; // You can change this query to search for specific car brands
 
 // Function to fetch images from Pexels API
