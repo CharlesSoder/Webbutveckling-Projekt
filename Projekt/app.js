@@ -6,7 +6,7 @@ const query = "240sx kouki"; // You can change this query to search for specific
 
 let carBrands = [
   "Lamborghini Murcielago",
-  "Mercedes-benz S-Class",
+  "Jaguar F-Type",
   "Nissan Sentra",
   "Chevrolet Corvette",
   "Volkswagen Passat",
@@ -17,12 +17,6 @@ let carBrands = [
   "Ferrari F8 Tributo",
   "Porsche Cayenne",
   "Lexus ES",
-  // "Mazda MX-5",
-  // "Subaru Impreza",
-  // "Tesla Model S",
-  // "Volvo XC90",
-  // "Jeep Wrangler",
-  // "Jaguar F-Type",
 ];
 
 for (let i = 0; i < 18; i++) {
@@ -64,8 +58,9 @@ function fetchImage(query, containerIndex) {
       const button = document.createElement("button");
       button.textContent = "View Details";
       button.addEventListener("click", () => {
+        console.log("View Details button clicked");
         // Redirect to another page passing the car brand as a query parameter
-        window.location.href = `details.html?brand=${encodeURIComponent(
+        window.location.href = `details.html?modelName=${encodeURIComponent(
           query
         )}`;
       });

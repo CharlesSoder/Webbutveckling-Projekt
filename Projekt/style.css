@@ -241,12 +241,10 @@ button {
   height: 300px;
 }
 
-/* .rubrik2 {
-} */
-
-/* .welcome-pic {
-  size: 200px;
-} */
+.footer-div {
+  height: 400px;
+  background-color: #bcbcbc;
+}
 
 .sticky-button {
   position: fixed;
