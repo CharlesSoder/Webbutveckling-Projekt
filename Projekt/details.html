@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Car Details</title>
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/6a87383f2b.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- Add any necessary CSS or external libraries -->
   </head>
   <body>
@@ -31,8 +35,9 @@
 
     <!-- Display car details here -->
 
-    <div id="carImageContainer" class="blur">
+    <div id="carImageContainer">
       <div id="carImage"></div>
+      <div class="carTitle"></div>
     </div>
     <div id="carDescription"></div>
     <div id="carDetails"></div>
@@ -116,7 +121,6 @@
           bgImage.style.width = "100%";
           bgImage.style.height = "350px";
           bgImage.style.filter = "brightness(0.5) blur(4px)";
-          // bgImage.style.filter = "blur(2px)";
           carImageContainerDiv.appendChild(bgImage);
 
           // const foregroundImage = document.getElementById("foregroundImage");
