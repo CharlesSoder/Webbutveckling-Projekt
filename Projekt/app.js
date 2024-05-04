@@ -30,17 +30,15 @@ function fetchImages() {
   }
 }
 
-const corsProxyUrl = "https://corsproxy.io/?";
-
 function fetchImage(query, containerIndex) {
   const apiUrl = `https://api.pexels.com/v1/search?query=${query}&per_page=1`;
-  const proxyUrl = corsProxyUrl + encodeURIComponent(apiUrl);
 
   fetch(`https://api.pexels.com/v1/search?query=${query}&per_page=1`, {
     headers: {
       Authorization: apiKey,
     },
   })
+    //gör en HTTP request och använder response och sedan konverterar response till ett json objekt. Detta blir "data"
     .then((response) => response.json())
     .then((data) => {
       const images = data.photos;
@@ -106,3 +104,12 @@ function handleSearch() {
   // Redirect to the details page with the search query as a parameter
   window.location.href = `details.html?modelName=${encodeURIComponent(query)}`;
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Klicka på logo för att direkt to index.html
+  const logoImage = document.getElementById("logoImg");
+
+  logoImage.addEventListener("click", function () {
+    window.location.href = "index.html";
+  });
+});

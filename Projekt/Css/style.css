@@ -63,9 +63,6 @@ nav {
 
 .search-bar input {
   display: block;
-  /* background-image: url(https://cdn2.hubspot.net/hubfs/4004166/bioticresearch_website_assets/images/search_icon.png);
-  background-repeat: no-repeat;
-  background-position: left center; */
   height: 45px;
   width: 35%;
   border-radius: 8px;
@@ -85,9 +82,6 @@ nav {
   cursor: pointer;
   z-index: 2;
   margin-right: -30px;
-  /* margin-right: 28%; */
-
-  /* För att sätta position till hälften av sökfältet */
 }
 
 .search-bar input::placeholder {
@@ -126,12 +120,12 @@ button {
   flex-shrink: 0;
 }
 
-/* slanted picture */
+/* slanted bild */
 .slanted {
   position: relative;
   min-height: 300px;
   min-width: 100%;
-  background: url(Car-dealership.jpeg) no-repeat right / 64% scroll;
+  background: url(../Images/Car-dealership.jpeg) no-repeat right / 64% scroll;
   display: inline-flex;
   justify-content: flex-start;
   align-content: center;
@@ -165,7 +159,6 @@ button {
 .background-size-hover {
   background-position: right;
   transition: background-size 0.3s;
-  /* transition: min-width 0.5s; */
 }
 
 .background-size-hover:hover {
@@ -205,10 +198,6 @@ button {
   flex-direction: row;
 }
 
-/* #carImageContainer img {
-  filter: blur(10px);
-} */
-
 #carImageContainer {
   display: flex;
   position: static;
@@ -229,12 +218,19 @@ button {
 }
 
 .carTitle {
+  display: flex;
   position: absolute;
   z-index: 3;
-  background-color: rgb(234, 234, 234);
-  height: 300px;
-  width: 400px;
+  background-color: rgb(255, 255, 255);
+  height: 55%;
+  width: 35%;
   right: 10%;
+  justify-content: center;
+}
+
+.carTitle h2 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 30px;
 }
 
 #backgroundImage {

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Car Details</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="Css/style.css" />
     <script
       src="https://kit.fontawesome.com/6a87383f2b.js"
       crossorigin="anonymous"
@@ -16,7 +16,7 @@
       <nav>
         <div class="search-bar">
           <div class="logo">
-            <img src="Gear logo.png" alt="Logo" />
+            <img id="logoImg" src="Images/Gear logo.png" alt="Logo" />
           </div>
           <div class="search-bar2">
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -31,13 +31,15 @@
         </div>
       </div>
     </header>
-    <h1>Car Details</h1>
 
     <!-- Display car details here -->
 
     <div id="carImageContainer">
       <div id="carImage"></div>
-      <div class="carTitle"></div>
+      <div class="carTitle">
+        <div id="carName"></div>
+        <div></div>
+      </div>
     </div>
     <div id="carDescription"></div>
     <div id="carDetails"></div>
@@ -61,14 +63,14 @@
       })
         .then((response) => response.json())
         .then((data) => {
-          const carDetailsDiv = document.getElementById("carDetails");
+          const carDetailsDiv = document.getElementById("carName");
           const carDescriptionDiv = document.getElementById("carDescription");
 
           if (data.length > 0) {
             const car = data[0];
             const carDiv = document.createElement("div");
             carDiv.innerHTML = `
-                    <h2>${car.model}</h2>
+                    <h2> ${car.make}, ${car.model}</h2>
                     <p>Vehicle manufacturer: ${car.make}</p>
                     <p>Year: ${car.year}</p>
                     <p>Drive type: ${car.drive}</p>
@@ -167,6 +169,14 @@
           query
         )}`;
       }
+      document.addEventListener("DOMContentLoaded", function () {
+        // Klicka på logo för att direkt to index.html
+        const logoImage = document.getElementById("logoImg");
+
+        logoImage.addEventListener("click", function () {
+          window.location.href = "index.html";
+        });
+      });
     </script>
   </body>
 </html>
