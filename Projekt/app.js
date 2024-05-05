@@ -57,7 +57,7 @@ function fetchImage(query, containerIndex) {
       button.textContent = "View Details";
       button.addEventListener("click", () => {
         console.log("View Details button clicked");
-        // Redirect to another page passing the car brand as a query parameter
+        // Redirect med query från den bilen man trycker på view details
         window.location.href = `details.html?modelName=${encodeURIComponent(
           query
         )}`;
@@ -73,7 +73,7 @@ function fetchImage(query, containerIndex) {
       console.error("Error fetching images:", error);
     });
 }
-// Call fetchImages function when the page loads
+// När window laddas kör fetchImages (alltså hämta bilderna)
 document.addEventListener("DOMContentLoaded", function () {
   fetchImages();
 });
@@ -85,23 +85,23 @@ const searchIcon = document.querySelector(".search-bar2 i.fa-magnifying-glass");
 searchInput.addEventListener("keypress", function (event) {
   // Check if the pressed key is Enter
   if (event.key === "Enter") {
-    // Prevent the default form submission behavior
+    // basically "gör inte som du brukar göra, browser. Låt mig sköta det"
     event.preventDefault();
-    // Call the function to handle search
+    // funktion för att imput ska sökas efter
     handleSearch();
   }
 });
 
 searchIcon.addEventListener("click", function () {
-  // Call the function to handle search
+  // kalla på sök funktion
   handleSearch();
 });
 
-// Function to handle search
+// Detta är funktionen för att söka
 function handleSearch() {
-  // Get the search query from the input field
+  // Skaffa info från sök och gör det till query
   const query = searchInput.value.trim();
-  // Redirect to the details page with the search query as a parameter
+  // Redirect till details med query som sök parameter
   window.location.href = `details.html?modelName=${encodeURIComponent(query)}`;
 }
 
