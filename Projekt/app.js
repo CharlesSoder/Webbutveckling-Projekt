@@ -104,12 +104,3 @@ function handleSearch() {
   // Redirect till details med query som sök parameter
   window.location.href = `details.html?modelName=${encodeURIComponent(query)}`;
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-  // Klicka på logo för att direkt to index.html
-  const logoImage = document.getElementById("logoImg");
-
-  logoImage.addEventListener("click", function () {
-    window.location.href = "index.html";
-  });
-});
