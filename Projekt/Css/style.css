@@ -76,7 +76,6 @@ nav {
 
 .search-bar i {
   display: inline-block;
-  /* position: absolute; */
   color: #000000;
   border: none;
   cursor: pointer;
@@ -299,6 +298,15 @@ button {
   font-family: "Roboto", sans-serif;
 }
 
+.detailsClass {
+  color: white;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border-radius: 15px;
+  background-color: rgb(44, 158, 145);
+  text-decoration: none;
+}
+
 .footer-container {
   background-color: #cfcece;
 }
@@ -366,8 +374,16 @@ ul {
 }
 
 @media only screen and (max-width: 480px) {
+  .login-button {
+    display: none;
+  }
+
   .car-main-div {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .bil-rubrik {
+    font-size: 15px;
   }
 
   .logo img {

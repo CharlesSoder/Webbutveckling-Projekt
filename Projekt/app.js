@@ -53,16 +53,23 @@ function fetchImage(query, containerIndex) {
         container.appendChild(imgElement);
       });
 
-      const button = document.createElement("button");
-      button.textContent = "View Details";
-      button.addEventListener("click", () => {
-        console.log("View Details button clicked");
-        // Redirect med query från den bilen man trycker på view details
-        window.location.href = `details.html?modelName=${encodeURIComponent(
-          query
-        )}`;
-      });
-      container.appendChild(button);
+      const a = document.createElement("a");
+      a.href = `details.html?modelName=${encodeURIComponent(query)}`;
+      a.classList.add("detailsClass");
+      a.innerText = "view details";
+
+      container.appendChild(a);
+
+      // const button = document.createElement("button");
+      // button.textContent = "View Details";
+      // button.addEventListener("click", () => {
+      //   console.log("View Details button clicked");
+      //   // Redirect med query från den bilen man trycker på view details
+      //   window.location.href = `details.html?modelName=${encodeURIComponent(
+      //     query
+      //   )}`;
+      // });
+      // container.appendChild(button);
 
       //texten för den exakta bilen
       const textElement = document.createElement("p");
