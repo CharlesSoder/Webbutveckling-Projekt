@@ -1,7 +1,6 @@
-const apiKey = "n43XbAobCpoDgMqfEUjQ5LRXbsQK5emlU0ORB1SX8p7O6mJAA1WbnTYP"; // Replace with your Pexels API key
-const query = "240sx kouki"; // You can change this query to search for specific car brands
+const apiKey = "n43XbAobCpoDgMqfEUjQ5LRXbsQK5emlU0ORB1SX8p7O6mJAA1WbnTYP";
+const query = "240sx kouki";
 
-// Function to fetch images from Pexels API
 // Jag har lagt per page till 0 så ändra när användning
 
 let carBrands = [
@@ -59,18 +58,6 @@ function fetchImage(query, containerIndex) {
       a.innerText = "view details";
 
       container.appendChild(a);
-
-      // const button = document.createElement("button");
-      // button.textContent = "View Details";
-      // button.addEventListener("click", () => {
-      //   console.log("View Details button clicked");
-      //   // Redirect med query från den bilen man trycker på view details
-      //   window.location.href = `details.html?modelName=${encodeURIComponent(
-      //     query
-      //   )}`;
-      // });
-      // container.appendChild(button);
-
       //texten för den exakta bilen
       const textElement = document.createElement("p");
       textElement.textContent = query;
